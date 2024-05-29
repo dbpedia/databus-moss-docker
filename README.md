@@ -15,10 +15,10 @@ Creates a `data` folder for gstore and an `index` folder for the lookup index
 Frontend using Svelte. Running on port `5000`
 
 `dbpedia/databus-moss-server:dev` 
-Server with MOSS API. . Running on port `5001`
+Server with MOSS API. Running on port `5001`
 
 `dbpedia/lookup:dev`
-Lookup Server for Search API. . Running on port `5002`
+Lookup Server for Search API. Running on port `5002`
 
 `dbpedia/gstore:dev`
 Gstore. Running on port `5003`
