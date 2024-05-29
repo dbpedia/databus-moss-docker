@@ -1,0 +1,39 @@
+version: "1.0"
+indexMode: INDEX_SPARQL_ENDPOINT
+sparqlEndpoint: http://virtuoso:8890/sparql
+indexFields:
+  - fieldName: annotation
+    documentVariable: mod
+    type: uri
+    query: >
+      SELECT DISTINCT ?mod ?annotation WHERE {
+          GRAPH ?g {
+            ?mod a <https://dataid.dbpedia.org/moss#OEMetadataMod> .
+            ?s <https://saref.etsi.org/core/isAbout> ?annotation .
+            FILTER (strstarts(str(?annotation), 'http://openenergy-platform.org/ontology/oeo/OEO_'))
+          }
+          #VALUES#
+      }
+  - fieldName: used
+    documentVariable: mod
+    type: uri
+    query: >
+      SELECT DISTINCT ?mod ?used WHERE {
+          GRAPH ?g {
+            ?mod a <https://dataid.dbpedia.org/moss#OEMetadataMod> .
+            ?mod <http://www.w3.org/ns/prov#used> ?used .
+            FILTER(isIRI(?used))
+          }
+          #VALUES#
+      }
+  - fieldName: modType
+    documentVariable: mod
+    type: uri
+    query: >
+      SELECT DISTINCT ?mod ?modType WHERE {
+          GRAPH ?g {
+            ?mod a <https://dataid.dbpedia.org/moss#OEMetadataMod> .
+            ?mod a ?modType .
+          }
+          #VALUES#
+      }

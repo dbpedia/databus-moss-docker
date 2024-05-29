@@ -1,0 +1,17 @@
+layers:
+  - name: simple
+loaders:
+  - collectionURI: https://databus.dbpedia.org/janfo/collections/moss-ontologies
+    indexer:
+      configPath: ./indexers/ontology-indexer.yml
+indexers:
+  - configPath: ./indexers/simple.yml
+    layers: 
+      - simple
+  - configPath: ./indexers/oemetadata-indexer.yml
+    layers: 
+      - oemetadata
+  - configPath: ./indexers/annotate-count-indexer.yml
+    layers:
+      - oemetadata
+      - simple
