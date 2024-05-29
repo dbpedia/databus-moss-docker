@@ -6,8 +6,11 @@ Run
 docker compose up
 ```
 
-Creates a `data` folder for gstore and an `index` folder for the lookup index
+Creates a `data` folder for gstore and an `index` folder for the lookup index. Frontend will be running on
 
+```
+http://localhost:5000
+```
 
 ## Containers
 
