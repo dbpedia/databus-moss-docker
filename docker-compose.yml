@@ -1,6 +1,14 @@
 # Starts everything except the databus
 version: "3.0"
 services:
+  moss-client:
+    image: dbpedia/databus-moss-client:dev
+    container_name: moss_dev_client
+    environment:
+      PUBLIC_LOOKUP_BASE_URL: http://localhost:5002
+      PUBLIC_MOSS_BASE_URL: http://localhost:5001
+    ports:
+      - "5000:5173"
   moss-server:
     image: dbpedia/databus-moss-server:dev
     container_name: moss_dev_server
@@ -11,12 +19,12 @@ services:
     volumes:
       - "./config:/config"
     ports:
-      - "5000:8080"
+      - "5001:8080"
   lookup:
     image: dbpedia/lookup:dev
     container_name: moss_dev_lookup
     ports:
-      - "5003:8082"
+      - "5002:8082"
     volumes:
       - "./config/lookup-config.yml:/resources/config.yml"
       - "./index:/index"
@@ -29,7 +37,7 @@ services:
       STORAGE_SPARQL_ENDPOINT_URI: http://virtuoso:8890/sparql
       GSTORE_LOCALHOST_CONTEXT_FALLBACK_URL: http://172.17.0.1
     ports:
-      - "5001:8080"
+      - "5003:8080"
     volumes:
       - ./data/gstore/git:/gstore/git
       - ./data/gstore/logs:/gstore/logs
@@ -41,7 +49,7 @@ services:
       SPARQL_UPDATE: "true"
       DEFAULT_GRAPH: "http://localhost:2000"
     ports:
-      - "5002:8890"
+      - "5004:8890"
     volumes:
       - ./data/virtuoso:/database
     entrypoint: /bin/bash -c "
