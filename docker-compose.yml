@@ -29,7 +29,7 @@ services:
       - "./config/lookup-config.yml:/resources/config.yml"
       - "./index:/index"
   gstore:
-    image: dbpedia/gstore:dev
+    image: dbpedia/gstore:rogue-jan
     container_name: moss_dev_gstore
     environment:
       STORAGE_USER: "dba"
