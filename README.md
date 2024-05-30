@@ -11,6 +11,19 @@ Creates a `data` folder for gstore and an `index` folder for the lookup index. F
 ```
 http://localhost:5000
 ```
+## MOSS API
+
+### Saving layers
+
+`POST api/save?repo=REPO&path=PATH` with document in body
+
+Example: REPO=databus.dbpedia.org, PATH=janfo/testgroup/testartifact/simple.jsonld
+
+### Annotating layers (not fully implemented, not sure if needed)
+Adds a DatabusMetadataLayer header to a JSON-LD document
+
+`POST /api/annotate?layerName=LAYERNAME&databusResource=DATABUSRESOURCE` with document in body
+
 
 ## Containers
 
