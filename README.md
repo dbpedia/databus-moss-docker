@@ -11,6 +11,13 @@ Creates a `data` folder for gstore and an `index` folder for the lookup index. F
 ```
 http://localhost:5000
 ```
+
+Create layers from
+
+```
+http://localhost:5000/create-layer
+```
+
 ## MOSS API
 
 ### Saving layers
