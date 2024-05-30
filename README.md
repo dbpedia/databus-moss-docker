@@ -19,6 +19,20 @@ http://localhost:5000
 
 Example: REPO=databus.dbpedia.org, PATH=janfo/testgroup/testartifact/simple.jsonld
 
+Example Body:
+```
+{
+    "@context" : "https://raw.githubusercontent.com/dbpedia/databus-moss/dev/devenv/context2.jsonld",
+    "@id" : "https://databus.openenergyplatform.org/hu_wu/test_group/",
+    "isExtendedBy" :  {
+        "@id" : "#layer",
+        "@type" : "DatabusMetadataLayer",
+        "layerName": "simple",
+        "created" : "2024-03-01 14:37:32"
+    }
+}
+```
+
 ### Annotating layers (not fully implemented, not sure if needed)
 Adds a DatabusMetadataLayer header to a JSON-LD document
 
