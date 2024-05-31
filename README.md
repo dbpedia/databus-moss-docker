@@ -71,7 +71,7 @@ Server with MOSS API. Running on port `5001`
 `dbpedia/lookup:dev`
 Lookup Server for Search API. Running on port `5002`
 
-`dbpedia/gstore:dev`
+`dbpedia/gstore:rogue-jan`
 Gstore. Running on port `5003`
 
 `openlink/virtuoso-opensource-7:latest`
