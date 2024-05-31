@@ -40,6 +40,20 @@ Example Body:
 }
 ```
 
+Example curl:
+```
+curl -X POST "http://localhost:5001/api/save?repo=databus.dbpedia.org&path=kurzum/provider.example.com/dataset1/2018.03.11/test.jsonld" -H "Content-Type: application/json" -d '{
+    "@context" : "https://raw.githubusercontent.com/dbpedia/databus-moss/dev/devenv/context2.jsonld",
+    "@id" : "https://databus.openenergyplatform.org/hu_wu/test_group/",
+    "isExtendedBy" :  {
+        "@id" : "#layer",
+        "@type" : "DatabusMetadataLayer",
+        "layerName": "simple",
+        "created" : "2024-03-01 14:37:32"
+    }
+}' -i
+```
+
 ### Annotating layers (not fully implemented, not sure if needed)
 Adds a DatabusMetadataLayer header to a JSON-LD document
 
