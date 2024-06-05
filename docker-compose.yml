@@ -6,7 +6,7 @@ services:
     container_name: moss_dev_client
     environment:
       PUBLIC_LOOKUP_BASE_URL: http://localhost:5002
-      PUBLIC_MOSS_BASE_URL: http://localhost:5001
+      PUBLIC_MOSS_BASE_URL: http://moss-server:8080
     ports:
       - "5000:5173"
   moss-server:
