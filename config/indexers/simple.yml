@@ -3,24 +3,24 @@ indexMode: INDEX_SPARQL_ENDPOINT
 sparqlEndpoint: http://virtuoso:8890/sparql
 indexFields:
   - fieldName: annotation
-    documentVariable: mod
+    documentVariable: layer
     type: uri
     query: >
-      SELECT DISTINCT ?mod ?annotation WHERE {
+      SELECT DISTINCT ?layer ?annotation WHERE {
           GRAPH ?g {
-            ?mod a <http://dataid.dbpedia.org/ns/moss#DatabusMetadataLayer> .
+            ?layer a <http://dataid.dbpedia.org/ns/moss#DatabusMetadataLayer> .
             ?_ <http://purl.org/dc/elements/1.1/subject> ?annotation .
           }
           #VALUES#
       }
   - fieldName: used
-    documentVariable: mod
+    documentVariable: layer
     type: uri
     query: >
-      SELECT DISTINCT ?mod ?used WHERE {
+      SELECT DISTINCT ?layer ?used WHERE {
           GRAPH ?g {
-            ?mod a <http://dataid.dbpedia.org/ns/moss#DatabusMetadataLayer> .
-            ?mod <http://www.w3.org/ns/prov#used> ?used .
+            ?layer a <http://dataid.dbpedia.org/ns/moss#DatabusMetadataLayer> .
+            ?layer <http://dataid.dbpedia.org/ns/moss#extends> ?used .
           }
           #VALUES#
       }
