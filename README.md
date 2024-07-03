@@ -44,7 +44,7 @@ curl -X POST 'http://localhost:5001/api/save?layer=simple&resource=https://datab
 }'
 ```
 
-Creates a `data` folder for gstore and an `index` folder for the lookup index
+Searching for `wind energy` in the main search field at `http://localhost:5000` should now show the new layer.
 
 
 ## Containers
