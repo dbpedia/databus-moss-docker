@@ -3,37 +3,47 @@ indexMode: INDEX_SPARQL_ENDPOINT
 sparqlEndpoint: http://virtuoso:8890/sparql
 indexFields:
   - fieldName: annotation
-    documentVariable: mod
+    documentVariable: layer
     type: uri
     query: >
-      SELECT DISTINCT ?mod ?annotation WHERE {
-          GRAPH ?g {
-            ?mod a <https://dataid.dbpedia.org/moss#OEMetadataMod> .
-            ?s <https://saref.etsi.org/core/isAbout> ?annotation .
-            FILTER (strstarts(str(?annotation), 'http://openenergy-platform.org/ontology/oeo/OEO_'))
+      SELECT DISTINCT ?layer ?annotation WHERE {
+          {
+            GRAPH ?g {
+              ?layer a <http://dataid.dbpedia.org/ns/moss#DatabusMetadataLayer> .
+              ?s <https://saref.etsi.org/core/isAbout> ?annotation .
+              FILTER (strstarts(str(?annotation), 'http://openenergy-platform.org/ontology/oeo/OEO_'))
+            }
+          } 
+          UNION 
+          {
+            GRAPH ?g {
+              ?layer a <http://dataid.dbpedia.org/ns/moss#DatabusMetadataLayer> .
+              ?_ <http://purl.org/dc/elements/1.1/subject> ?annotation .
+              FILTER(isIri(?annotation))
+            } 
           }
           #VALUES#
       }
   - fieldName: used
-    documentVariable: mod
+    documentVariable: layer
     type: uri
     query: >
-      SELECT DISTINCT ?mod ?used WHERE {
+      SELECT DISTINCT ?layer ?used WHERE {
           GRAPH ?g {
-            ?mod a <https://dataid.dbpedia.org/moss#OEMetadataMod> .
-            ?mod <http://www.w3.org/ns/prov#used> ?used .
+            ?layer a <http://dataid.dbpedia.org/ns/moss#DatabusMetadataLayer> .
+            ?layer <http://dataid.dbpedia.org/ns/moss#extends> ?used .
             FILTER(isIRI(?used))
           }
           #VALUES#
       }
-  - fieldName: modType
-    documentVariable: mod
+  - fieldName: layerName
+    documentVariable: layer
     type: uri
     query: >
-      SELECT DISTINCT ?mod ?modType WHERE {
+      SELECT DISTINCT ?layer ?layerName WHERE {
           GRAPH ?g {
-            ?mod a <https://dataid.dbpedia.org/moss#OEMetadataMod> .
-            ?mod a ?modType .
+            ?layer a <http://dataid.dbpedia.org/ns/moss#DatabusMetadataLayer> .
+            ?layer <http://dataid.dbpedia.org/ns/moss#layerName> ?layerName.
           }
           #VALUES#
       }

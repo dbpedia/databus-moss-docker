@@ -3,34 +3,37 @@ version: "3.0"
 services:
   moss-client:
     image: dbpedia/databus-moss-client:dev
-    container_name: moss_dev_client
+    container_name: moss_client
     environment:
       PUBLIC_LOOKUP_BASE_URL: http://localhost:5002
-      PUBLIC_MOSS_BASE_URL: http://localhost:5001
+      PUBLIC_MOSS_BASE_URL: http://moss-server:8080
+      VITE_MOSS_BASE_URL: http://moss-server:8080
     ports:
       - "5000:5173"
   moss-server:
     image: dbpedia/databus-moss-server:dev
-    container_name: moss_dev_server
+    container_name: moss_server
     environment:
       CONFIG_PATH: /config/moss-config.yml
       LOOKUP_BASE_URL: http://lookup:8082
       GSTORE_BASE_URL: http://gstore:8080
+      USER_DATABASE_PATH: /users/user.db
     volumes:
+      - "./data/users:/users"
       - "./config:/config"
     ports:
       - "5001:8080"
   lookup:
     image: dbpedia/lookup:dev
-    container_name: moss_dev_lookup
+    container_name: moss_lookup
     ports:
       - "5002:8082"
     volumes:
       - "./config/lookup-config.yml:/resources/config.yml"
-      - "./index:/index"
+      - "./data/index:/index"
   gstore:
-    image: dbpedia/gstore:dev
-    container_name: moss_dev_gstore
+    image: dbpedia/gstore:rogue-jan
+    container_name: moss_gstore
     environment:
       STORAGE_USER: "dba"
       STORAGE_PASS: "everyoneknows"
@@ -43,7 +46,7 @@ services:
       - ./data/gstore/logs:/gstore/logs
   virtuoso:
     image: "openlink/virtuoso-opensource-7:latest"
-    container_name: moss_dev_virtuoso
+    container_name: moss_virtuoso
     environment:
       DBA_PASSWORD: "everyoneknows"
       SPARQL_UPDATE: "true"

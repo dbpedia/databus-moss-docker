@@ -6,12 +6,21 @@ indexFields:
     documentVariable: oeoClass
     type: numeric
     query: >
-      SELECT ?oeoClass (COUNT(DISTINCT ?mod) as ?annotatedCount) WHERE {
+      SELECT ?oeoClass (COUNT(DISTINCT ?layer) as ?annotatedCount) WHERE {
+        {
           GRAPH ?g {
-            ?mod a <https://dataid.dbpedia.org/moss#OEMetadataMod> .
+            ?layer a <http://dataid.dbpedia.org/ns/moss#DatabusMetadataLayer> .
             ?s <https://saref.etsi.org/core/isAbout> ?oeoClass .
-            FILTER (strstarts(str(?oeoClass), 'http://openenergy-platform.org/ontology/oeo/OEO_'))
           }
-          ?oeoClass <http://www.w3.org/2000/01/rdf-schema#label> ?label .
-          ?oeoClass a <http://www.w3.org/2002/07/owl#Class> .
+        } 
+        UNION 
+        {
+          GRAPH ?g {
+            ?layer a <http://dataid.dbpedia.org/ns/moss#DatabusMetadataLayer> .
+            ?_ <http://purl.org/dc/elements/1.1/subject> ?oeoClass .
+          } 
+        }
+
+        ?oeoClass <http://www.w3.org/2000/01/rdf-schema#label> ?label .
+        ?oeoClass a <http://www.w3.org/2002/07/owl#Class> .
       } GROUP BY ?oeoClass

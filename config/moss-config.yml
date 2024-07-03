@@ -1,5 +1,6 @@
 layers:
   - name: simple
+  - name: oemetadata
 loaders:
   - collectionURI: https://databus.dbpedia.org/janfo/collections/moss-ontologies
     indexer:
