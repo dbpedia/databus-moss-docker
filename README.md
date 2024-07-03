@@ -49,17 +49,17 @@ Searching for `wind energy` in the main search field at `http://localhost:5000` 
 
 ## Containers
 
-`missing`
-Frontend
+`dbpedia/databus-moss-client:dev`
+Frontend using Svelte. Running on port `5000`
 
 `dbpedia/databus-moss-server:dev` 
-Server with MOSS API
+Server with MOSS API. Running on port `5001`
 
 `dbpedia/lookup:dev`
-Lookup Server for Search API
+Lookup Server for Search API. Running on port `5002`
 
-`dbpedia/gstore:dev`
-Gstore
+`dbpedia/gstore:rogue-jan`
+Gstore. Running on port `5003`
 
 `openlink/virtuoso-opensource-7:latest`
-Triple Store Backend
+Triple Store Backend. Running on port `5004`
