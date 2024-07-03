@@ -27,7 +27,7 @@ OWM3ZTY3NTItNjQ2ZC00ZDE5LWE4ZTctYjc4NGFkNjkyZDFj_17784836-6dc2-4880-96ac-42a0f35
 
 To create a layer on your MOSS instance, issue the following `curl`:
 ```
-curl -X POST 'http://localhost:5001/api/save?layer=simple&resource=https://databus.openenergyplatform.org/hu_wu/test_group' \
+curl -X POST 'http://localhost:5000/api/save?layer=simple&resource=https://databus.openenergyplatform.org/hu_wu/test_group' \
   -H 'accept: application/json' \
   -H 'X-API-KEY: OWM3ZTY3NTItNjQ2ZC00ZDE5LWE4ZTctYjc4NGFkNjkyZDFj_17784836-6dc2-4880-96ac-42a0f3570bb2' \
   -H 'Content-Type: application/ld+json' \
