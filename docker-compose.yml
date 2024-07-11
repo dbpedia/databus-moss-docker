@@ -6,6 +6,9 @@ services:
     container_name: moss_client
     environment:
       VITE_MOSS_BASE_URL: http://moss-server:8080
+      AUTH_OIDC_CLIENT_ID: moss-dev
+      AUTH_OIDC_CLIENT_SECRET: z7feqbX7lGyAFzPzGIaC4LT7vidPqrP5
+      AUTH_OIDC_ISSUER: https://auth.dbpedia.org/realms/dbpedia
     ports:
       - "5000:5173"
   moss-server:
