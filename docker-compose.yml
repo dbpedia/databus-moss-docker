@@ -1,40 +1,45 @@
-# Starts everything except the databus
 version: "3.0"
 services:
-  moss-client:
-    image: dbpedia/databus-moss-client:dev
-    container_name: moss_client
+  # Frontend Svelte App for HTML view, login and API-key creation
+  moss-frontend:
+    image: dbpedia/databus-moss-frontend:dev
+    container_name: moss_dev_frontend
     environment:
-      VITE_MOSS_BASE_URL: http://moss-server:8080
+      PUBLIC_MOSS_BASE_URL: https://dev.moss.dbpedia.org
+      ORIGIN: https://dev.moss.dbpedia.org
       AUTH_OIDC_CLIENT_ID: moss-dev
       AUTH_OIDC_CLIENT_SECRET: z7feqbX7lGyAFzPzGIaC4LT7vidPqrP5
       AUTH_OIDC_ISSUER: https://auth.dbpedia.org/realms/dbpedia
+      AUTH_OIDC_CLIENT_SCOPE: "openid profile email"
     ports:
-      - "5000:5173"
+      - "5000:3000"
+  # MOSS Server
   moss-server:
     image: dbpedia/databus-moss-server:dev
-    container_name: moss_server
+    container_name: moss_dev_server
     environment:
+      USER_DATABASE_PATH: /users/users.db
       CONFIG_PATH: /config/moss-config.yml
       LOOKUP_BASE_URL: http://lookup:8082
       GSTORE_BASE_URL: http://gstore:8080
-      USER_DATABASE_PATH: /users/user.db
+      MOSS_BASE_URL: https://dev.moss.dbpedia.org
     volumes:
-      - "./data/users:/users"
       - "./config:/config"
+      - "./data/users:/users"
     ports:
       - "5001:8080"
+  # Lookup for indexed search
   lookup:
     image: dbpedia/lookup:dev
-    container_name: moss_lookup
+    container_name: moss_dev_lookup
     ports:
       - "5002:8082"
     volumes:
       - "./config/lookup-config.yml:/resources/config.yml"
-      - "./data/index:/index"
+      - "./index:/index"
   gstore:
-    image: dbpedia/gstore:rogue-jan
-    container_name: moss_gstore
+    image: dbpedia/gstore:dev
+    container_name: moss_dev_gstore
     environment:
       STORAGE_USER: "dba"
       STORAGE_PASS: "everyoneknows"
@@ -47,7 +52,7 @@ services:
       - ./data/gstore/logs:/gstore/logs
   virtuoso:
     image: "openlink/virtuoso-opensource-7:latest"
-    container_name: moss_virtuoso
+    container_name: moss_dev_virtuoso
     environment:
       DBA_PASSWORD: "everyoneknows"
       SPARQL_UPDATE: "true"

@@ -9,18 +9,11 @@ indexFields:
       SELECT DISTINCT ?layer ?annotation WHERE {
           GRAPH ?g {
             ?layer a <http://dataid.dbpedia.org/ns/moss#DatabusMetadataLayer> .
-            ?_ <http://purl.org/dc/elements/1.1/subject> ?annotation .
+            ?layer <http://dataid.dbpedia.org/ns/moss#layerName> "simple" .
+            ?layer <http://dataid.dbpedia.org/ns/moss#content> ?content .
           }
-          #VALUES#
-      }
-  - fieldName: used
-    documentVariable: layer
-    type: uri
-    query: >
-      SELECT DISTINCT ?layer ?used WHERE {
-          GRAPH ?g {
-            ?layer a <http://dataid.dbpedia.org/ns/moss#DatabusMetadataLayer> .
-            ?layer <http://dataid.dbpedia.org/ns/moss#extends> ?used .
+          GRAPH ?content {
+            ?_ <https://saref.etsi.org/core/isAbout> ?annotation .
           }
           #VALUES#
       }

@@ -7,22 +7,16 @@ indexFields:
     type: uri
     query: >
       SELECT DISTINCT ?layer ?annotation WHERE {
-          {
-            GRAPH ?g {
-              ?layer a <http://dataid.dbpedia.org/ns/moss#DatabusMetadataLayer> .
-              ?s <https://saref.etsi.org/core/isAbout> ?annotation .
-              FILTER (strstarts(str(?annotation), 'http://openenergy-platform.org/ontology/oeo/OEO_'))
-            }
-          } 
-          UNION 
-          {
-            GRAPH ?g {
-              ?layer a <http://dataid.dbpedia.org/ns/moss#DatabusMetadataLayer> .
-              ?_ <http://purl.org/dc/elements/1.1/subject> ?annotation .
-              FILTER(isIri(?annotation))
-            } 
-          }
-          #VALUES#
+        GRAPH ?g {
+          ?layer a <http://dataid.dbpedia.org/ns/moss#DatabusMetadataLayer> .
+          ?layer <http://dataid.dbpedia.org/ns/moss#layerName> "oemetadata" .
+          ?layer <http://dataid.dbpedia.org/ns/moss#content> ?content .
+        }
+        GRAPH ?content {
+          ?_ <https://saref.etsi.org/core/isAbout> ?annotation .
+          FILTER (strstarts(str(?annotation), 'http://openenergy-platform.org/ontology/oeo/OEO_'))
+        }
+        #VALUES#
       }
   - fieldName: used
     documentVariable: layer

@@ -1,0 +1,5 @@
+{
+  "@context" : "https://raw.githubusercontent.com/dbpedia/databus-moss/dev/devenv/context2.jsonld",
+  "@id" : "%DATABUS_RESOURCE%",
+  "isAbout": "http://openenergy-platform.org/ontology/oeo/OEO_00020054"      
+}
