@@ -42,7 +42,7 @@ Searching for `nuclear` in the main search field at `http://localhost:5000` shou
 
 ## Containers
 
-`dbpedia/databus-moss-client:dev`
+`dbpedia/databus-moss-frontend:dev`
 Frontend using Svelte. Running on port `5000`
 
 `dbpedia/databus-moss-server:dev` 
