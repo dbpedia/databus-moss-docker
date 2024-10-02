@@ -33,7 +33,7 @@ curl -X POST 'http://localhost:5000/api/save?layer=simple&resource=https://datab
   -d '@prefix dct: <http://purl.org/dc/terms/> .
 <https://databus.openenergyplatform.org/hu_wu/test_group>
      <https://saref.etsi.org/core/isAbout> <http://openenergy-platform.org/ontology/oeo/OEO_00020054> ;
-     <https://saref.etsi.org/core/isAbout> <http://openenergy-platform.org/ontology/oeo/OEO_00020053> ;'
+     <https://saref.etsi.org/core/isAbout> <http://openenergy-platform.org/ontology/oeo/OEO_00020053> .'
 ```
 
 Searching for `nuclear` in the main search field at `http://localhost:5000` should now show the new layer.
