@@ -30,11 +30,10 @@ curl -X POST 'http://localhost:5000/api/save?layer=simple&resource=https://datab
   -H 'accept: application/json' \
   -H 'X-API-KEY: OWM3ZTY3NTItNjQ2ZC00ZDE5LWE4ZTctYjc4NGFkNjkyZDFj_17784836-6dc2-4880-96ac-42a0f3570bb2' \
   -H 'Content-Type: application/ld+json' \
-  -d '{
-  "@context" : "https://raw.githubusercontent.com/dbpedia/databus-moss/dev/devenv/context2.jsonld",
-  "@id" : "https://databus.openenergyplatform.org/hu_wu/test_group",
-  "isAbout": "http://openenergy-platform.org/ontology/oeo/OEO_00020054"      
-}'
+  -d '@prefix dct: <http://purl.org/dc/terms/> .
+<https://databus.openenergyplatform.org/hu_wu/test_group>
+     <https://saref.etsi.org/core/isAbout> <http://openenergy-platform.org/ontology/oeo/OEO_00020054> ;
+     <https://saref.etsi.org/core/isAbout> <http://openenergy-platform.org/ontology/oeo/OEO_00020053> .'
 ```
 
 Searching for `nuclear` in the main search field at `http://localhost:5000` should now show the new layer.
