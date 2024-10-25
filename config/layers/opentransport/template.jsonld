@@ -1,0 +1,95 @@
+{
+  "@id": "%DATABUS_RESOURCE%",
+  "@context": "https://raw.githubusercontent.com/OpenEnergyPlatform/oemetadata/refs/heads/develop/metadata/v20/context.json",
+  "name": "",
+  "title": "",
+  "description": "",
+  "language": [],
+  "subject": [],
+  "keywords": [],
+  "publicationDate": "",
+  "underEmbargoUntil": "",
+  "content": {
+      "transportMode": {
+          "label": "",
+          "iri": ""
+      },
+      "meansOfTransport": {
+          "label": "",
+          "iri": ""
+      },
+      "transportInfrastructure": {
+          "label": "",
+          "iri": ""
+      },
+      "dataGenerationMethod": {
+          "label": "",
+          "iri": ""
+      },
+      "dataFrom": {
+          "label": "",
+          "iri": ""
+      },
+      "elementaryUnit": {
+          "label": "",
+          "iri": ""
+      },
+      "spatialUnit": {
+          "label": "",
+          "iri": ""
+      },
+      "scope": {
+          "label": "",
+          "iri": ""
+      }
+  },
+  "context": {
+      "context": "",
+      "project": "",
+      "homepage": "",
+      "documentation": "",
+      "projectStatus": "",
+      "sourceCode": "",
+      "contact": {
+          "label": "",
+          "id": ""
+      },
+      "grantNo": "",
+      "fundingAgency": "",
+      "fundingAgencyLogo": "",
+      "publishingOrganization": "",
+      "publisherROR": "",
+      "publisherLogo": "",
+      "purpose": ""
+  },
+  "spatial_and_temporal": {
+      "spatial": [],
+      "temporal": [],
+      "timeseries": []
+  },
+  "source": {
+      "sources": []
+  },
+  "license": {
+      "licenses": []
+  },
+  "provenance": {
+      "contributors": [],
+      "version": "",
+      "policy": [],
+      "wasGeneratedBy": "",
+      "provenanceGraph": ""
+  },
+  "resource": [],
+  "review": {
+      "project": "",
+      "badge": "None"
+  },
+  "meta": {
+      "metadataSchema": "OTO",
+      "metadataSchemaVersion": "0.1.0",
+      "metadataLicense": {
+          "licenses": []
+      }
+  }
+}

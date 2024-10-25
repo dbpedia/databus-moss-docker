@@ -12,7 +12,14 @@ indexFields:
           ?layer <http://dataid.dbpedia.org/ns/moss#content> ?content .
         }
         GRAPH ?content {
-          ?_ <https://saref.etsi.org/core/isAbout> ?oeoClass .
-          FILTER (strstarts(str(?oeoClass), 'http://openenergy-platform.org/ontology/oeo/OEO_'))
+          {
+            ?_ <https://saref.etsi.org/core/isAbout> ?oeoClass .
+            FILTER (strstarts(str(?oeoClass), 'http://openenergy-platform.org/ontology/oeo/OEO_'))
+          }
+          UNION
+          {
+            ?_ <http://purl.org/dc/elements/1.1/subject> ?oeoClass .
+            FILTER (strstarts(str(?oeoClass), 'http://openenergy-platform.org/ontology/oeo/OEO_'))
+          }
         }
       } GROUP BY ?oeoClass

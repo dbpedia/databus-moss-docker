@@ -1,20 +1,25 @@
 layers:
   - name: simple
-    template: templates/simple.ttl
+    template: layers/simple/template.ttl
   - name: oemetadata
-    template: templates/oemetadata.jsonld
+    template: layers/openenergy/template.jsonld
+  - name: opentransport
+    template: layers/opentransport/template.jsonld
 loaders:
   - collectionURI: https://databus.dbpedia.org/janfo/collections/moss-ontologies
     indexer:
-      configPath: ./indexers/ontology-indexer.yml
+      configPath: ./common/ontology-indexer.yml
 indexers:
-  - configPath: ./indexers/simple.yml
-    layers: 
+  - configPath: ./layers/simple/indexer.yml
+    layers:
       - simple
-  - configPath: ./indexers/oemetadata-indexer.yml
-    layers: 
+  - configPath: ./layers/openenergy/indexer.yml
+    layers:
       - oemetadata
-  - configPath: ./indexers/annotate-count-indexer.yml
+  - configPath: ./layers/opentransport/indexer.yml
+    layers:
+      - opentransport
+  - configPath: ./common/annotate-count-indexer.yml
     layers:
       - oemetadata
       - simple
