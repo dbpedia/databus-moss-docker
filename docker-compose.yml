@@ -2,7 +2,7 @@ version: "3.0"
 services:
   # Frontend Svelte App for HTML view, login and API-key creation
   moss-frontend:
-    image: dbpedia/databus-moss-frontend:dev
+    image: dbpedia/databus-moss-client:dev
     container_name: moss_dev_frontend
     environment:
       PUBLIC_MOSS_BASE_URL: https://dev.moss.dbpedia.org
