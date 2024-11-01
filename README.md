@@ -1,4 +1,11 @@
-# databus-moss-docker
+# Databus MOSS
+
+Welcome to the main repository of the Databus Metadata Overlay Search System (MOSS). Here you can find instructions for deployment of a MOSS instance with Docker and examples to get your started. The code for the two main components (Server and Frontend) are held in separate repositories.
+
+* MOSS-Server: [https://github.com/dbpedia/databus-moss-server](https://github.com/dbpedia/databus-moss-server)
+* MOSS-Frontend: [https://github.com/dbpedia/databus-moss-frontend](https://github.com/dbpedia/databus-moss-frontend)
+
+## Deployment and Example
 
 Run
 
@@ -97,3 +104,7 @@ CONFIG_PATH: /config/moss-config.yml
 LOOKUP_BASE_URL: http://lookup:8082
 GSTORE_BASE_URL: http://gstore:8080
 ```
+
+## Legacy Code (LODGEOSS)
+
+You can find the old version of MOSS (LODGEOSS project result) [here](https://github.com/dbpedia/databus-moss-lodgeoss).
