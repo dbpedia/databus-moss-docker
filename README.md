@@ -1,6 +1,6 @@
 # Databus MOSS
 
-Welcome to the main repository of the Databus Metadata Overlay Search System (MOSS). Here you can find instructions for deployment of a MOSS instance with Docker and examples to get your started. The code for the two main components (Server and Frontend) are held in separate repositories.
+Welcome to the main repository of the Databus Metadata Overlay Search System (MOSS). Here you can find instructions for deployment of a MOSS instance with Docker and examples to get your started. The code for the two main components (server and frontend) are held in separate repositories.
 
 * MOSS-Server: [https://github.com/dbpedia/databus-moss-server](https://github.com/dbpedia/databus-moss-server)
 * MOSS-Frontend: [https://github.com/dbpedia/databus-moss-frontend](https://github.com/dbpedia/databus-moss-frontend)
