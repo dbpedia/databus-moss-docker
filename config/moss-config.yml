@@ -1,25 +1,26 @@
-layers:
-  - name: simple
-    template: layers/simple/template.ttl
-  - name: oemetadata
-    template: layers/openenergy/template.jsonld
-  - name: opentransport
-    template: layers/opentransport/template.jsonld
 loaders:
   - collectionURI: https://databus.dbpedia.org/janfo/collections/moss-ontologies
     indexer:
-      configPath: ./common/ontology-indexer.yml
-indexers:
-  - configPath: ./layers/simple/indexer.yml
-    layers:
-      - simple
-  - configPath: ./layers/openenergy/indexer.yml
-    layers:
-      - oemetadata
-  - configPath: ./layers/opentransport/indexer.yml
-    layers:
-      - opentransport
-  - configPath: ./common/annotate-count-indexer.yml
-    layers:
-      - oemetadata
-      - simple
+      configPath: ./indexers/ontology-indexer.yml
+layers:
+  - name: simple
+    templatePath: layers/simple/template.jsonld
+    shaclPath: layers/simple/shapes.shacl
+    scope: version
+    indexers:
+      - layers/simple/indexer.yml
+      - indexers/annotate-count-indexer.yml
+  - name: openenergy
+    templatePath: layers/openenergy/template.jsonld
+    shaclPath: layers/openenergy/shapes.shacl
+    scope: version
+    indexers:
+      - layers/openenergy/indexer.yml
+      - indexers/annotate-count-indexer.yml
+  - name: opentransport
+    templatePath: layers/opentransport/template.jsonld
+    shaclPath: layers/opentransport/shapes.shacl
+    scope: version
+    indexers:
+      - layers/opentransport/indexer.yml
+      - indexers/annotate-count-indexer.yml

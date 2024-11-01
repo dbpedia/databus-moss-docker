@@ -5,6 +5,7 @@ Welcome to the main repository of the Databus Metadata Overlay Search System (MO
 * MOSS-Server: [https://github.com/dbpedia/databus-moss-server](https://github.com/dbpedia/databus-moss-server)
 * MOSS-Frontend: [https://github.com/dbpedia/databus-moss-frontend](https://github.com/dbpedia/databus-moss-frontend)
 
+
 ## Deployment and Example
 
 Run
@@ -45,6 +46,14 @@ curl -X POST 'http://localhost:5000/api/save?layer=simple&resource=https://datab
 
 Searching for `nuclear` in the main search field at `http://localhost:5000` should now show the new layer.
 
+## About
+
+The Databus MOSS (Metadata Overlay Search System) is a system of creating modular metadata extensions for the metadata graphs provided by [Databus](https://github.com/dbpedia/databus) entries. The general idea is that a Databus instance provides stable identifiers for your files along with the most basic metadata for file usage (format, comppression, licensing). However, more domain or file-type specific metadata is often needed. MOSS provides a system for the management of additional metadata graphs. With MOSS, you can:
+
+* Create schema for metadata extensions
+* Create and manage additional metadata graphs
+* Tailor a flexible indexed searcher directly to your specific RDF-metadata
+* Enjoy enhanced data retrieval based on your metadata entries
 
 ## Containers
 

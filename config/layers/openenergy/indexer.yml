@@ -9,7 +9,7 @@ indexFields:
       SELECT DISTINCT ?layer ?annotation WHERE {
         GRAPH ?g {
           ?layer a <http://dataid.dbpedia.org/ns/moss#DatabusMetadataLayer> .
-          ?layer <http://dataid.dbpedia.org/ns/moss#layerName> "oemetadata" .
+          ?layer <http://dataid.dbpedia.org/ns/moss#layerName> "openenergy" .
           ?layer <http://dataid.dbpedia.org/ns/moss#content> ?content .
         }
         GRAPH ?content {

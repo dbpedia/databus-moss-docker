@@ -28,6 +28,14 @@ lookupFields:
     allowPartialMatch: true
     required: false
     exact: false
+  - name: keyword
+    weight: 10
+    highlight: true
+    tokenize: true
+    queryByDefault: true
+    allowPartialMatch: true
+    required: false
+    exact: false
   - name: annotatedCount
     type: numeric
     weight: 1

@@ -1,4 +1,3 @@
-@prefix dct: <http://purl.org/dc/terms/> .
+@prefix schema: <https://schema.org/> .
 
-<%DATABUS_RESOURCE%>
-     <https://saref.etsi.org/core/isAbout> <http://openenergy-platform.org/ontology/oeo/OEO_00020054> ;
+<%DATABUS_RESOURCE%> <schema:keywords> "simple" .
