@@ -1,7 +1,7 @@
 loaders:
   - collectionURI: https://databus.dbpedia.org/janfo/collections/moss-ontologies
     indexer:
-      configPath: ./indexers/ontology-indexer.yml
+      configPath: ./common/ontology-indexer.yml
 layers:
   - name: keyword
     formatMimeType: application/ld+json
