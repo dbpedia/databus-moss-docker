@@ -40,7 +40,7 @@ lookupFields:
     type: numeric
     weight: 1
   - name: annotation
-     tokenize: false
+    tokenize: false
     highlight: false
     required: true
     tokenize: true
