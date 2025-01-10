@@ -18,11 +18,14 @@ services:
     image: dbpedia/databus-moss-server:dev
     container_name: moss_dev_server
     environment:
-      USER_DATABASE_PATH: /users/users.db
-      CONFIG_PATH: /config/moss-config.yml
+      MOSS_BASE_URL: https://dev.moss.dbpedia.org
       LOOKUP_BASE_URL: http://lookup:8082
       GSTORE_BASE_URL: http://gstore:8080
-      MOSS_BASE_URL: https://dev.moss.dbpedia.org
+      USER_DATABASE_PATH: /users/users.db
+      CONFIG_PATH: /config/moss-config.yml
+      AUTH_OIDC_CLIENT_ID: moss-dev
+      AUTH_OIDC_CLIENT_SECRET: z7feqbX7lGyAFzPzGIaC4LT7vidPqrP5
+      AUTH_OIDC_ISSUER: https://auth.dbpedia.org/realms/dbpedia
     volumes:
       - "./config:/config"
       - "./data/users:/users"

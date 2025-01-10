@@ -40,9 +40,14 @@ lookupFields:
     type: numeric
     weight: 1
   - name: annotation
-    type: uri
-    tokenize: false
-    weight: 1
+     tokenize: false
+    highlight: false
+    required: true
+    tokenize: true
+    exact: true
+    allowPartialMatch: true
+    exact: true
+    weight: 10
   - name: used
     type: uri
     weight: 1
